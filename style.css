@@ -146,6 +146,11 @@ html,body{
 .lyrics-wrap.ink-on .lyrics-underline{ opacity:0.55; }
 .lyrics-wrap.ink-on .lyrics-underline path{ stroke-dashoffset: 0; }
 
+.stage.final-active .lyrics-wrap{
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
 .lyric-line{
   margin:0;
   font-family: var(--font-display);
@@ -280,101 +285,104 @@ html,body{
 }
 
 /* ============================================================
-   PANTALLA FINAL
+   PANTALLA FINAL — sutil, sin modal: solo texto e íconos
    ============================================================ */
 .final-screen{
-  position:absolute; inset:0;
+  position:absolute;
+  left:50%; top:50%;
+  transform: translate(-50%,-50%);
   z-index: 20;
+  width: min(90vw, 480px);
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:center;
-  background: rgba(8,10,20,0.72);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  text-align:center;
   opacity:0;
   pointer-events:none;
-  transition: opacity .9s var(--ease);
+  transition: opacity 1s var(--ease);
 }
 .final-screen.visible{
   opacity:1;
   pointer-events:auto;
 }
 .final-inner{
-  text-align:center;
-  padding: 20px;
-  width: min(90vw, 480px);
-  transform: translateY(10px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transform: translateY(8px);
   opacity:0;
-  transition: transform .8s var(--ease) .15s, opacity .8s var(--ease) .15s;
+  transition: transform .9s var(--ease) .1s, opacity .9s var(--ease) .1s;
 }
 .final-screen.visible .final-inner{
   transform: translateY(0);
   opacity:1;
 }
 .final-question{
-  font-family: var(--font-accent);
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-  margin: 0 0 28px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3.6vw, 2rem);
   color: var(--ink);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  margin: 0 0 26px;
 }
 .rating-row{
   display:flex;
-  gap: 14px;
+  gap: 34px;
   justify-content:center;
-  flex-wrap: wrap;
+  align-items:center;
   margin-bottom: 22px;
 }
 .rate-btn{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  color: var(--ink);
-  padding: 16px 20px;
-  border-radius: 18px;
+  background:none;
+  border:none;
+  color: var(--ink-dim);
+  padding: 6px;
   cursor:pointer;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  letter-spacing: .02em;
-  transition: transform .25s var(--ease), background .25s ease, opacity .25s ease, border-color .25s ease;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,0.35));
+  transition: color .25s ease, transform .25s var(--ease), opacity .25s ease;
 }
-.rate-btn .rate-icon{ font-size: 1.6rem; line-height:1; }
-.rate-btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,0.1); }
+.rate-icon-svg{ display:block; }
+.rate-btn:hover{ color: var(--ink); transform: translateY(-2px); }
 .rate-btn.selected{
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  transform: translateY(-3px) scale(1.04);
+  color: var(--accent);
+  transform: translateY(-2px) scale(1.12);
 }
-.rate-btn.dimmed{ opacity: 0.35; transform:none; }
+.rate-btn[data-rate="love"].selected .rate-icon-svg path{
+  fill: var(--accent);
+  fill-opacity: 0.3;
+}
+.rate-btn.dimmed{ opacity: 0.3; transform:none; }
 
 .final-thanks{
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ink);
+  font-size: 1rem;
+  color: var(--ink-dim);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
   opacity:0;
   height:0;
   overflow:hidden;
   transition: opacity .6s ease;
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
-.final-thanks.visible{ opacity:1; height:auto; margin: -6px 0 18px; }
+.final-thanks.visible{ opacity:1; height:auto; margin: -6px 0 20px; }
 
 .replay-btn{
-  background: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: var(--ink);
-  padding: 10px 22px;
-  border-radius: var(--radius);
+  background:none;
+  border:none;
+  color: var(--ink-dim);
+  padding: 4px 2px;
   font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   letter-spacing: .04em;
+  text-decoration: underline;
+  text-decoration-color: rgba(253,243,234,0.35);
+  text-underline-offset: 3px;
   cursor:pointer;
-  transition: background .2s ease, transform .2s ease;
+  transition: color .2s ease;
 }
-.replay-btn:hover{ background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.replay-btn:hover{ color: var(--ink); text-decoration-color: var(--ink); }
 
 /* ============================================================
    RESPONSIVE
@@ -388,8 +396,7 @@ html,body{
   }
   .controls-row{ gap: 26px; }
   .play-btn{ width: 56px; height:56px; }
-  .rating-row{ gap: 10px; }
-  .rate-btn{ padding: 14px 14px; flex:1 1 28%; }
+  .rating-row{ gap: 26px; }
 }
 
 @media (max-height: 480px) and (orientation: landscape){

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Mañana — Lyric Video</title>
+<title>Esta Mañana — Lyric Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -93,66 +93,87 @@
         <feGaussianBlur stdDeviation="1.1"/>
       </filter>
       <linearGradient id="hullShade" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#2c3454"/>
-        <stop offset="100%" stop-color="#181c30"/>
+        <stop offset="0%" stop-color="#323a5e"/>
+        <stop offset="55%" stop-color="#232a47"/>
+        <stop offset="100%" stop-color="#141830"/>
+      </linearGradient>
+      <linearGradient id="bulwarkShade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2a3150"/>
+        <stop offset="100%" stop-color="#1c2140"/>
       </linearGradient>
     </defs>
-    <g id="ship" class="ship" transform="translate(-160,452)">
+    <g id="ship" class="ship" transform="translate(-170,452)">
 
       <!-- reflejo sobre el agua -->
-      <g class="ship-reflection" filter="url(#shipReflectionBlur)" transform="scale(1,-1) translate(0,-4)">
-        <path d="M-4,4 L4,26 L118,26 L134,14 L120,4 Z" fill="#12162a"/>
-        <rect x="10" y="-16" width="16" height="20" fill="#c0563f"/>
-        <rect x="28" y="-16" width="16" height="20" fill="#3f7f9c"/>
-        <rect x="46" y="-30" width="16" height="34" fill="#dfae5a"/>
-        <rect x="64" y="-16" width="16" height="20" fill="#b5765f"/>
-        <rect x="82" y="-30" width="16" height="34" fill="#3f7f9c"/>
-        <rect x="100" y="-16" width="16" height="20" fill="#c0563f"/>
+      <g class="ship-reflection" filter="url(#shipReflectionBlur)" transform="scale(1,-1) translate(0,-6)">
+        <path d="M-8,10 L-8,20 L2,26 L118,26 L131,20 L131,10 L118,4 L2,4 Z" fill="#12162a"/>
+        <rect x="12" y="-8" width="14" height="12" fill="#c0563f"/>
+        <rect x="30" y="-8" width="14" height="12" fill="#3f7f9c"/>
+        <rect x="48" y="-14" width="14" height="18" fill="#dfae5a"/>
+        <rect x="66" y="-8" width="14" height="12" fill="#b5765f"/>
+        <rect x="84" y="-14" width="14" height="18" fill="#3f7f9c"/>
+        <rect x="102" y="-8" width="14" height="12" fill="#c0563f"/>
       </g>
 
       <!-- estela suave -->
-      <path class="ship-wake" d="M-18,20 Q-40,16 -60,20 M-14,25 Q-34,23 -52,26" fill="none" stroke="#fdf3ea" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round"/>
+      <path class="ship-wake" d="M-22,20 Q-44,16 -66,20 M-18,25 Q-38,23 -56,26" fill="none" stroke="#fdf3ea" stroke-opacity="0.22" stroke-width="2" stroke-linecap="round"/>
 
-      <!-- casco -->
-      <path d="M-4,14 L4,4 L120,4 L134,14 L120,26 L4,26 Z" fill="url(#hullShade)" stroke="#0e1120" stroke-width="1"/>
-      <path d="M4,6 L120,6" stroke="#4a5178" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
-      <line x1="14" y1="26" x2="14" y2="30" stroke="#0e1120" stroke-width="2"/>
-      <line x1="60" y1="26" x2="60" y2="30" stroke="#0e1120" stroke-width="2"/>
-      <line x1="104" y1="26" x2="104" y2="30" stroke="#0e1120" stroke-width="2"/>
+      <!-- casco: proa recta con leve amurada, popa achatada -->
+      <path d="M-8,10 L-8,20 L2,26 L118,26 L131,20 L131,10 L118,4 L2,4 Z"
+            fill="url(#hullShade)" stroke="#0d1022" stroke-width="1"/>
+      <!-- línea de flotación -->
+      <path d="M-8,20 L131,20" stroke="#0d1022" stroke-width="1.2" opacity="0.55"/>
+      <!-- ojos de buey -->
+      <g class="portholes" fill="none" stroke="#6b7396" stroke-width="1" opacity="0.55">
+        <circle cx="16" cy="16" r="1.6"/>
+        <circle cx="32" cy="16" r="1.6"/>
+        <circle cx="48" cy="16" r="1.6"/>
+        <circle cx="80" cy="16" r="1.6"/>
+        <circle cx="96" cy="16" r="1.6"/>
+        <circle cx="112" cy="16" r="1.6"/>
+      </g>
+      <line x1="20" y1="26" x2="20" y2="29" stroke="#0d1022" stroke-width="2"/>
+      <line x1="64" y1="26" x2="64" y2="29" stroke="#0d1022" stroke-width="2"/>
+      <line x1="108" y1="26" x2="108" y2="29" stroke="#0d1022" stroke-width="2"/>
 
-      <!-- contenedores (con leve volumen) -->
+      <!-- bodega de carga: contenedores apilados dentro de la amurada -->
       <g class="containers">
-        <rect x="10" y="-16" width="16" height="20" rx="1" fill="#c0563f"/>
-        <rect x="10" y="-16" width="16" height="4" fill="#e08268" opacity="0.7"/>
-        <rect x="28" y="-16" width="16" height="20" rx="1" fill="#3f7f9c"/>
-        <rect x="28" y="-16" width="16" height="4" fill="#6fa8c2" opacity="0.7"/>
-        <rect x="46" y="-30" width="16" height="34" rx="1" fill="#dfae5a"/>
-        <rect x="46" y="-30" width="16" height="4" fill="#f0cd8c" opacity="0.7"/>
-        <rect x="64" y="-16" width="16" height="20" rx="1" fill="#b5765f"/>
-        <rect x="64" y="-16" width="16" height="4" fill="#d6a08c" opacity="0.7"/>
-        <rect x="82" y="-30" width="16" height="34" rx="1" fill="#3f7f9c"/>
-        <rect x="82" y="-30" width="16" height="4" fill="#6fa8c2" opacity="0.7"/>
-        <rect x="100" y="-16" width="16" height="20" rx="1" fill="#c0563f"/>
-        <rect x="100" y="-16" width="16" height="4" fill="#e08268" opacity="0.7"/>
+        <rect x="12" y="-14" width="14" height="18" rx="1" fill="#c0563f"/>
+        <rect x="12" y="-14" width="14" height="3.5" fill="#e08268" opacity="0.7"/>
+        <rect x="30" y="-14" width="14" height="18" rx="1" fill="#3f7f9c"/>
+        <rect x="30" y="-14" width="14" height="3.5" fill="#6fa8c2" opacity="0.7"/>
+        <rect x="48" y="-27" width="14" height="31" rx="1" fill="#dfae5a"/>
+        <rect x="48" y="-27" width="14" height="3.5" fill="#f0cd8c" opacity="0.7"/>
+        <rect x="66" y="-14" width="14" height="18" rx="1" fill="#b5765f"/>
+        <rect x="66" y="-14" width="14" height="3.5" fill="#d6a08c" opacity="0.7"/>
+        <rect x="84" y="-27" width="14" height="31" rx="1" fill="#3f7f9c"/>
+        <rect x="84" y="-27" width="14" height="3.5" fill="#6fa8c2" opacity="0.7"/>
+        <rect x="102" y="-14" width="14" height="18" rx="1" fill="#c0563f"/>
+        <rect x="102" y="-14" width="14" height="3.5" fill="#e08268" opacity="0.7"/>
       </g>
 
-      <!-- puente de mando -->
+      <!-- amurada: borda del buque que "encastra" los contenedores en la bodega -->
+      <path d="M2,4 L2,-6 Q2,-8 4,-8 L116,-8 Q118,-8 118,-6 L118,4 Z"
+            fill="none" stroke="url(#bulwarkShade)" stroke-width="9" stroke-linejoin="round"/>
+      <path d="M4,-7.5 L116,-7.5" stroke="#4a5178" stroke-width="1" opacity="0.6"/>
+
+      <!-- puente de mando (a popa) -->
       <g class="bridge">
-        <rect x="-2" y="-26" width="16" height="30" rx="1.5" fill="#e9ddc8"/>
-        <rect x="0" y="-22" width="4" height="4" fill="#2a3350"/>
-        <rect x="6" y="-22" width="4" height="4" fill="#2a3350"/>
-        <rect x="0" y="-15" width="10" height="3" fill="#2a3350" opacity="0.5"/>
-        <line x1="6" y1="-26" x2="6" y2="-38" stroke="#2a3350" stroke-width="1.4"/>
-        <line x1="6" y1="-38" x2="12" y2="-38" stroke="#2a3350" stroke-width="1.4"/>
-        <rect x="-6" y="-14" width="6" height="18" fill="#20263f"/>
+        <rect x="-14" y="-30" width="15" height="34" rx="1.5" fill="#e9ddc8"/>
+        <rect x="-12" y="-25" width="4" height="4" fill="#2a3350"/>
+        <rect x="-6" y="-25" width="4" height="4" fill="#2a3350"/>
+        <rect x="-12" y="-18" width="10" height="3" fill="#2a3350" opacity="0.5"/>
+        <line x1="-7" y1="-30" x2="-7" y2="-42" stroke="#2a3350" stroke-width="1.4"/>
+        <line x1="-7" y1="-42" x2="-1" y2="-42" stroke="#2a3350" stroke-width="1.4"/>
+        <rect x="-19" y="-16" width="6" height="20" fill="#20263f"/>
       </g>
 
       <!-- chimenea con humo -->
       <g class="funnel">
-        <path d="M-4,-14 L-3,-24 Q-3,-27 1,-27 L2,-27 Q6,-27 6,-24 L7,-14 Z" fill="#2a3350"/>
-        <rect x="-3" y="-25" width="10" height="2.4" fill="#c0563f"/>
-        <path class="smoke smoke-1" d="M2,-27 Q6,-33 2,-38 Q-2,-42 2,-47" fill="none" stroke="#fdf3ea" stroke-width="2.4" stroke-linecap="round" opacity="0.28"/>
-        <path class="smoke smoke-2" d="M2,-27 Q7,-32 4,-37 Q0,-41 4,-45" fill="none" stroke="#fdf3ea" stroke-width="1.8" stroke-linecap="round" opacity="0.2"/>
+        <path d="M-12,-16 L-11,-26 Q-11,-29 -7,-29 L-6,-29 Q-2,-29 -2,-26 L-1,-16 Z" fill="#2a3350"/>
+        <rect x="-12" y="-27" width="10" height="2.4" fill="#c0563f"/>
+        <path class="smoke smoke-1" d="M-7,-29 Q-3,-35 -7,-40 Q-11,-44 -7,-49" fill="none" stroke="#fdf3ea" stroke-width="2.4" stroke-linecap="round" opacity="0.28"/>
+        <path class="smoke smoke-2" d="M-7,-29 Q-2,-34 -5,-39 Q-9,-43 -5,-47" fill="none" stroke="#fdf3ea" stroke-width="1.8" stroke-linecap="round" opacity="0.2"/>
       </g>
     </g>
 
@@ -207,19 +228,23 @@
   <!-- ============ PANTALLA FINAL ============ -->
   <div class="final-screen" id="finalScreen">
     <div class="final-inner">
-      <p class="final-question" id="finalQuestion">Ayudanos a mejorar</p>
+      <p class="final-question" id="finalQuestion">¿Nos ayudás a mejorar?</p>
       <div class="rating-row" id="ratingRow">
-        <button class="rate-btn" data-rate="dislike">
-          <span class="rate-icon">👎</span>
-          <span class="rate-label">Goma</span>
+        <button class="rate-btn" data-rate="dislike" aria-label="No me gusta">
+          <svg class="rate-icon-svg" viewBox="0 0 24 24" width="26" height="26" transform="rotate(180,0,0)">
+            <path d="M7 22V10M2 13v7a2 2 0 0 0 2 2h13.5a2 2 0 0 0 2-1.6l1.4-7A2 2 0 0 0 19 11h-5.5l.9-4.5a1.77 1.77 0 0 0-3.4-1L9 10H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- <path d="M17 2v13M22 10.5v2a2 2 0 0 1-2 2h-3.5l.9 4.5a1.77 1.77 0 0 1-3.4 1L11 15H5.5a2 2 0 0 1-2-1.6l-1.4-7A2 2 0 0 1 4 4h13z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/> -->
+          </svg>
         </button>
-        <button class="rate-btn" data-rate="like">
-          <span class="rate-icon">🤍</span>
-          <span class="rate-label">Zafa</span>
+        <button class="rate-btn" data-rate="like" aria-label="Me gusta">
+          <svg class="rate-icon-svg" viewBox="0 0 24 24" width="26" height="26">
+            <path d="M7 22V10M2 13v7a2 2 0 0 0 2 2h13.5a2 2 0 0 0 2-1.6l1.4-7A2 2 0 0 0 19 11h-5.5l.9-4.5a1.77 1.77 0 0 0-3.4-1L9 10H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
-        <button class="rate-btn" data-rate="love">
-          <span class="rate-icon">❤️</span>
-          <span class="rate-label">Amé</span>
+        <button class="rate-btn" data-rate="love" aria-label="Me encanta">
+          <svg class="rate-icon-svg" viewBox="0 0 24 24" width="26" height="26">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
       </div>
       <p class="final-thanks" id="finalThanks">Gracias por escuchar.</p>

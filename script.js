@@ -416,9 +416,11 @@ let hasVoted = false;
 
 function showFinalScreen(){
   finalScreen.classList.add('visible');
+  stage.classList.add('final-active');
 }
 function hideFinalScreen(){
   finalScreen.classList.remove('visible');
+  stage.classList.remove('final-active');
   resetRatingUI();
 }
 function maybeDismissFinal(){
